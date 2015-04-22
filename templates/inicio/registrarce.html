@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Registrarce</title>
+</head>
+<body>
+	<center>
+	<h3>Registrate</h3>
+	<form method = "post">{% csrf_token %}
+		{{form.as_table}}
+		<input type = "submit" value = "Registarce">
+	</form>
+	</center>
+</body>
+</html>

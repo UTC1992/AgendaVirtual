@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+</head>
+<body>
+	<center>
+	{% if user.is_authenticated %}
+	Bienvenido {{user.username|capfirst}}
+	 	<a href="/cerrar/">Salir</a>
+     {% else %}
+		<h2>Logín</h2>
+		<form method = "post">{% csrf_token %}
+		<table>
+			<tr>
+				<td>Usuario :</td>
+				<td><input type = "text" name = "username" id = "username"></td>
+			</tr>
+			<tr>
+				<td>Contraseña :</td>
+				<td><input type = "password" name = "password" id = "password"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+
+		</table>
+		<input type = "submit" value = "Ingresar">
+		<a href="/registrarce/">Registrarce</a>
+		</form>
+	{% endif %}
+	<br><br><br>
+	<form action = "/libros/buscar/" method = "post">{% csrf_token %}
+		<label>Buscar</label>
+		<input type = "text" name = "datoBuscado" id = "datoBuscado" value = "">
+		<input type = "submit" value = "Buscar">
+	</form>
+	</center>
+</body>
+</html>

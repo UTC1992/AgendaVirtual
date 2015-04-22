@@ -1,0 +1,21 @@
+{% if autor %}
+	{% for autor in autores %}
+		{{autor.nombre}}
+	{% endfor %}
+{% else %}
+	{% for dato in datos %}
+		{% for libro,autor in dato.items %}
+			<label>Nombre Libro:</label>
+			{{libro.nombre}}
+			<br>
+			{% for a in autor %}
+				<label>Autor:</label>
+				{{a.nombre}}
+			{% endfor %}
+		{% endfor %}
+	{% endfor %}
+{% endif %}
+		
+
+			
+	
